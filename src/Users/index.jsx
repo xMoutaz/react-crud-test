@@ -26,7 +26,7 @@ const UserRow = ({ id, name , skills, refetch}) => (
 );
 
 const fetchUsers = async (skill) => {
-  const response = await fetch(`http://localhost:8081/users?skills=${skill}`);
+  const response = await fetch(`https://workgenius-backend.herokuapp.com/users?skills=${skill}`);
   const { items } = await response.json();
   return items;
 };

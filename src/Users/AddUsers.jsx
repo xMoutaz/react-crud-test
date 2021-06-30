@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 
 const addUsersBulk = async () => {
-  await fetch("http://localhost:8081/users", {
+  await fetch("https://workgenius-backend.herokuapp.com/users", {
     method: "POST",
   });
 };

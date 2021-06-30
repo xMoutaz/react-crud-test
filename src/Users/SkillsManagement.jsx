@@ -1,25 +1,14 @@
-import React, { useCallback } from "react";
+import React from "react";
+import { Link } from 'react-router-dom';
 
-const manageSkillsBulk = async (input) => {
-  console.log(!!input.props.skills.length);
-    var skills = input.props.skills.length? []: ['javascript'] ;
-    const requestOptions = {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ skill: skills, id: input.props.id })
-    };
-  await fetch("http://localhost:8081/users", requestOptions);
-};
 
 export default function ManageSkills(input) {
-  const onClick = useCallback(() => {
-        manageSkillsBulk(input).then(input.refetch);
-  }, [input.refetch]);
+
   return (
-    <div className="skillButton">
-        { !!input.props.skills.length? 
-        <button onClick={onClick}>Remove JS skill</button>: 
-        <button onClick={onClick}>Add JS skill</button>}
-    </div>
+      <Link to={`/attach-skill/${input.props.id}`}>
+        <div className="skillButton">
+        <button className='skillButton'>Attach Skill</button>
+        </div>
+      </Link>
   );
 }
